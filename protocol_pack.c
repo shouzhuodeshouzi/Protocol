@@ -126,9 +126,18 @@ static char* pt_pack_work_data(int id, void *data) {
     return (*pt_pack_work_data_table[dev_type])(id, data);
 }
 
-
 static char* pt_pack_work_data_simuhuman(int id, void *data) {
-    return NULL;
+    ASSERT(id >=1 && id <=3);
+    ASSERT(data);
+
+    MALLOC(pack_buff);
+    CHECK_MALLOC(pack_buff);
+
+    int n = *(int *)data;
+    SNPRINTF(pack_buff, PACK_BUFF_SZE, "{%d%.2d%.2d%d[%d]}",
+            PACKAGE_WORK_DATA, dev_type, dev_id, id, n);
+
+    return pack_buff;
 }
 static char* pt_pack_work_data_height_weight(int id, void *data) {
     return NULL;
@@ -226,7 +235,17 @@ static char* pt_pack_param_data(int id, void *data) {
 }
 
 static char* pt_pack_param_data_simuhuman(int id, void *data){
-    return NULL;
+    ASSERT(id >=1 && id <=3);
+    ASSERT(data);
+
+    MALLOC(pack_buff);
+    CHECK_MALLOC(pack_buff);
+
+    int n = *(int *)data;
+    SNPRINTF(pack_buff, PACK_BUFF_SZE, "{%d%.2d%.2d%d[%d]}",
+            PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
+
+    return pack_buff;    
 }
 static char* pt_pack_param_data_height_weight(int id, void *data){
     return NULL;
