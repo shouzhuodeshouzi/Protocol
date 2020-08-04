@@ -134,7 +134,7 @@ static char* pt_pack_work_data_simuhuman(int id, void *data) {
     CHECK_MALLOC(pack_buff);
 
     int n = *(int *)data;
-    SNPRINTF(pack_buff, PACK_BUFF_SZE, "{%d%.2d%.2d%d[%d]}",
+    SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
             PACKAGE_WORK_DATA, dev_type, dev_id, id, n);
 
     return pack_buff;
@@ -242,7 +242,7 @@ static char* pt_pack_param_data_simuhuman(int id, void *data){
     CHECK_MALLOC(pack_buff);
 
     int n = *(int *)data;
-    SNPRINTF(pack_buff, PACK_BUFF_SZE, "{%d%.2d%.2d%d[%d]}",
+    SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
             PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
 
     return pack_buff;    
