@@ -28,6 +28,11 @@
 /*************** package 3 ********************/
 #define PK3_SIMUHUMAN_DIE        1
 #define PK3_SIMUHUMAN_LIVE       2
+#define PK3_SIMUHUMAN_PRESS_CONTROL  3
+#define PK3_SIMUHUMAN_POS_CONTROL    4
+#define PK3_SIMUHUMAN_BREATH_CONTROL 5
+#define PK3_SIMUHUMAN_PRESS_CLEAR    6
+#define PK3_SIMUHUMAN_BREATH_CLEAR   7
 
 #define PK3_HEIGHT_WEIGHT_START_ROTATE  1
 #define PK3_HEIGHT_WEIGHT_STOP_ROTATE   2
@@ -110,5 +115,9 @@
 #define PK5_PARAM_ID_FIELD            3
 #define PK5_READ_WRITE_FIELD          4
 #define PK5_DATA_FIELD                5
+
+// 参数读写位的编码
+#define PK_PARAM_OPS_READ             1
+#define PK_PARAM_OPS_WRITE            2
 
 #endif /* APPLICATIONS_PROTOCOL_PT_COMMON_H_ */

@@ -133,9 +133,26 @@ static char* pt_pack_work_data_simuhuman(int id, void *data) {
     MALLOC(pack_buff);
     CHECK_MALLOC(pack_buff);
 
-    int n = *(int *)data;
-    SNPRINTF(pack_buff, PACK_BUFF_SZE, "{%d%.2d%.2d%d[%d]}",
-            PACKAGE_WORK_DATA, dev_type, dev_id, id, n);
+//    int n = *(int *)data;
+//    SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
+//            PACKAGE_WORK_DATA, dev_type, dev_id, id, n);
+
+    switch (id) {
+        case PK4_SIMUHUMAN_HEIGTH: {
+            int n = *(float *)data * 10;
+            int integer = n / 10;
+            int decimal = n % 10;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%.1d.%.1d]}",
+                        PACKAGE_WORK_DATA, dev_type, dev_id, id, integer, decimal);
+            break;
+        }
+        default: {
+            int n = *(int *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
+                    PACKAGE_WORK_DATA, dev_type, dev_id, id, n);
+            break;
+        }
+    }
 
     return pack_buff;
 }
@@ -242,7 +259,7 @@ static char* pt_pack_param_data_simuhuman(int id, void *data){
     CHECK_MALLOC(pack_buff);
 
     int n = *(int *)data;
-    SNPRINTF(pack_buff, PACK_BUFF_SZE, "{%d%.2d%.2d%d[%d]}",
+    SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
             PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
 
     return pack_buff;    
