@@ -48,6 +48,7 @@ char* pt_unpack(char *package, int* n) {
     ASSERT(type == 1 || type == 3 || type == 5);
 
     MALLOC(unpack_buff);
+    rt_memset(unpack_buff, 0, UNPACK_BUFF_SIZE*UNPACK_BUFF_SIZE);
     CHECK_MALLOC(unpack_buff);
 
     switch (type) {
