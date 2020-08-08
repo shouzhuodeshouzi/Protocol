@@ -79,6 +79,7 @@
 /*************** package 5 ********************/
 #define PK5_SIMUHUMAN_MODE          1
 #define PK5_SIMUHUMAN_TIME          2
+#define PK5_SIMUHUMAN_BREATH_ENV    5
 
 #define PK5_HEIGHT_WEIGHT_W         1
 #define PK5_HEIGHT_WEIGHT_H         2
@@ -91,6 +92,7 @@
 /*************** package 6 ********************/
 #define PK6_SIMUHUMAN_MODE          1
 #define PK6_SIMUHUMAN_TIME          2
+#define PK6_SIMUHUMAN_BREATH_ENV    5
 
 #define PK6_HEIGHT_WEIGHT_W         1
 #define PK6_HEIGHT_WEIGHT_H         2
