@@ -263,16 +263,25 @@ static char* pt_pack_param_data_simuhuman(int id, void *data){
             int n = *(int *)data;
             SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
                     PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
+            break;
         }
         case PK6_SIMUHUMAN_TIME: {
             int n = *(int *)data;
             SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
                     PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
+            break;
         }
         case PK6_SIMUHUMAN_BREATH_ENV: {
             float n = *(float *)data;
             SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
                     PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
+            break;
+        }
+        case PK6_SIMUHUMAN_PRESS_ENV: {
+            float n = *(float *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
+                    PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
+            break;
         }
     }
     return pack_buff;    
