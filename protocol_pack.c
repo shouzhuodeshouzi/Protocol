@@ -48,7 +48,11 @@ static char pt_buff[PACK_BUFF_SIZE];
 
     
 /* 此 "设备类型" 和 "设备id" 需要根据实际情况修改确定，默认为 "01" "01" */
+<<<<<<< HEAD
 int dev_type = 5;
+=======
+int dev_type = 2;
+>>>>>>> 890783e1ba8ae79ca8e257fa98bfff38f6a08dd5
 int dev_id = 1;
 
 
@@ -157,7 +161,35 @@ static char* pt_pack_work_data_simuhuman(int id, void *data) {
     return pack_buff;
 }
 static char* pt_pack_work_data_height_weight(int id, void *data) {
-    return NULL;
+    ASSERT(id >= 1 && id <= 4);
+    ASSERT(data);
+
+    MALLOC(pack_buff);
+    CHECK_MALLOC(pack_buff);
+
+    switch (id) {
+        case PK4_HEIGHT_WEIGHT_W: {
+            float n = *(float *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
+                        PACKAGE_WORK_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
+            break;
+        }
+        case PK4_HEIGHT_WEIGHT_H: {
+            int n = *(int *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
+                        PACKAGE_WORK_DATA, dev_type, dev_id, id, n);
+            break;
+        }
+        case PK4_HEIGHT_WEIGHT_ROTATED: {
+            break;
+        }
+        case PK4_HEIGHT_WEIGHT_EMPTY: {
+            break;
+        }
+        default:    break;
+    }
+
+    return pack_buff;
 }
 static char* pt_pack_work_data_response_time(int id, void *data) {
     ASSERT(id == 1);
@@ -286,18 +318,45 @@ static char* pt_pack_param_data_simuhuman(int id, void *data){
             SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
                     PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
             break;
+<<<<<<< HEAD
+=======
         }
         case PK6_SIMUHUMAN_PRESS_ENV: {
             float n = *(float *)data;
             SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
                     PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
             break;
+>>>>>>> b15e3dc5e25dd52e089147cef44a12c2b429eb07
         }
     }
     return pack_buff;    
 }
 static char* pt_pack_param_data_height_weight(int id, void *data){
-    return NULL;
+    ASSERT(id >=1 && id <=9);
+    ASSERT(data);
+
+    MALLOC(pack_buff);
+    CHECK_MALLOC(pack_buff);
+
+    switch (id) {
+        case PK6_HEIGHT_WEIGHT_W: {
+            float n = *(float *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
+                    PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
+            break;
+        }
+        case PK6_HEIGHT_WEIGHT_H: {
+            int n = *(int *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
+                    PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
+            break;
+        }
+        case PK6_HEIGHT_WEIGHT_SPEED: {
+
+        }
+    }
+
+    return pack_buff;
 }
 static char* pt_pack_param_data_response_time(int id, void *data){
     UNUSED(id);
