@@ -33,6 +33,7 @@
 #define PK3_SIMUHUMAN_BREATH_CONTROL 5
 #define PK3_SIMUHUMAN_PRESS_CLEAR    6
 #define PK3_SIMUHUMAN_BREATH_CLEAR   7
+#define PK3_SIMUHUMAN_PUPIL_SMALL_PULSE_STOP    8
 
 #define PK3_HEIGHT_WEIGHT_START_ROTATE      1
 #define PK3_HEIGHT_WEIGHT_STOP_ROTATE       2
@@ -82,6 +83,7 @@
 #define PK5_SIMUHUMAN_MODE          1
 #define PK5_SIMUHUMAN_TIME          2
 #define PK5_SIMUHUMAN_BREATH_ENV    5
+#define PK5_SIMUHUMAN_PRESS_ENV     6
 
 #define PK5_HEIGHT_WEIGHT_W         1
 #define PK5_HEIGHT_WEIGHT_H         2
@@ -91,10 +93,12 @@
 
 #define PK5_DYNAMOMETER_FACTOR      1
 
+#define PK56_DEV_ID                 9
 /*************** package 6 ********************/
 #define PK6_SIMUHUMAN_MODE          1
 #define PK6_SIMUHUMAN_TIME          2
 #define PK6_SIMUHUMAN_BREATH_ENV    5
+#define PK6_SIMUHUMAN_PRESS_ENV     6
 
 #define PK6_HEIGHT_WEIGHT_W         1
 #define PK6_HEIGHT_WEIGHT_H         2

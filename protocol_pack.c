@@ -304,6 +304,15 @@ static char* pt_pack_param_data_simuhuman(int id, void *data){
             SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
                     PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
             break;
+<<<<<<< HEAD
+=======
+        }
+        case PK6_SIMUHUMAN_PRESS_ENV: {
+            float n = *(float *)data;
+            SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%d]}",
+                    PACKAGE_PARAM_DATA, dev_type, dev_id, id, (int)(n*10)/10, (int)(n*10)%10);
+            break;
+>>>>>>> b15e3dc5e25dd52e089147cef44a12c2b429eb07
         }
     }
     return pack_buff;    
