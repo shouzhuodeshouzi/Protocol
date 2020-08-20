@@ -48,7 +48,7 @@ static char pt_buff[PACK_BUFF_SIZE];
 
     
 /* 此 "设备类型" 和 "设备id" 需要根据实际情况修改确定，默认为 "01" "01" */
-int dev_type = 1;
+int dev_type = 5;
 int dev_id = 1;
 
 
@@ -176,7 +176,17 @@ static char* pt_pack_work_data_vital_capacity(int id, void *data) {
     return NULL;
 }
 static char* pt_pack_work_data_dynamometer(int id, void *data) {
-    return NULL;
+    ASSERT(id == 1);
+    ASSERT(data);
+
+    MALLOC(pack_buff);
+    CHECK_MALLOC(pack_buff);
+
+    float n = *(float *)data;
+    SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d.%.2d]}",
+                PACKAGE_WORK_DATA, dev_type, dev_id, id, (int)(n*100)/100, (int)(n*100)%100);
+
+    return pack_buff;
 }
 static char* pt_pack_work_data_single_foot(int id, void *data) {
     return NULL;
@@ -299,7 +309,17 @@ static char* pt_pack_param_data_vital_capacity(int id, void *data){
     return NULL;
 }
 static char* pt_pack_param_data_dynamometer(int id, void *data){
-    return NULL;
+    ASSERT(id>=1 && id<=9);
+    ASSERT(data);
+
+    MALLOC(pack_buff);
+    CHECK_MALLOC(pack_buff);
+
+    int n = *(int *)data;
+    SNPRINTF(pack_buff, PACK_BUFF_SIZE, "{%d%.2d%.2d%d[%d]}",
+            PACKAGE_PARAM_DATA, dev_type, dev_id, id, n);
+
+    return pack_buff;
 }
 static char* pt_pack_param_data_single_foot(int id, void *data){
     return NULL;
