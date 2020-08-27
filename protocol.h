@@ -12,7 +12,7 @@ typedef enum PACKAGE_TYPE{
     PACKAGE_PARAM_DATA = 6
 }PACKAGE_TYPE;
 
-extern int dev_type; 
+extern int dev_type;
 extern int dev_id;
 
 #define USING_RTT   1       // 裸机环境为0，RT-Thread 操作系统环境为 1
@@ -66,5 +66,8 @@ extern char* pt_unpack(char *package, int* n);
 #define PT_FREE(buf) do { (buf)=NULL; }while(0)
 #endif  /* USING_RTT */
 
+
+void set_dev_id(int n);
+int get_dev_id(void);
 
 #endif /* PROTOCOL_H */
