@@ -48,11 +48,7 @@ static char pt_buff[PACK_BUFF_SIZE];
 
     
 /* 此 "设备类型" 和 "设备id" 需要根据实际情况修改确定，默认为 "01" "01" */
-<<<<<<< HEAD
 int dev_type = 4;
-=======
-int dev_type = 5;
->>>>>>> 9b1cc34c8163cc8c1a3c0d46e971cd631e3ba61d
 int dev_id = 1;
 
 
