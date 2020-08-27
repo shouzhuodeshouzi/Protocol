@@ -17,6 +17,7 @@
 #define  PK1_START_MEASURE       4
 #define  PK1_STOP_MEASURE        5
 
+#define  PK1_SOFT_RESET          9
 /*************** package 2 ********************/
 #define PK2_DEV_STATE           1
 #define PK2_DEV_ID              2
